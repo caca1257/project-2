@@ -1,0 +1,83 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <!-- to get rid of favicon request in console -->
+  <link rel="shortcut icon" href="">
+
+  <!-- P5 STUFF -->
+<!--   <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+ --> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.8/p5.js"></script>
+  <script language="javascript" type="text/javascript" src="display.js"></script>
+
+
+  <!-- SOCKET STUFF -->
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+  <script type="text/javascript">
+    // var bg; //background variable is global
+    /// SOCKET STUFF
+    var socket = io.connect();
+
+    
+    socket.on('connect', function() {
+      console.log("Connected");
+    });
+
+    socket.on('touchCircle', function(data){
+      // console.log('mobile circle touched!');
+    ringlets.push(new Ringlet(random(width), random(height), data.fillR, data.fillG, data.fillB, data.circleDiameter));
+      // console.log(data.circleDiameter);
+    });
+
+    socket.on('orientation', function(data){
+    var bg = map(data.gamma, -60, 60, 100, 0);
+    background(bg);
+    });
+
+    socket.on('eraseRinglet', function(data){
+      ringletErased(data);
+    });
+
+    
+
+
+
+
+  </script>
+
+  <style> 
+  body {
+    padding: 0; 
+    margin: 0;
+  }
+ /* .container{
+    position: absolute;
+    z-index: 5;
+    padding-left: 10px;
+  }
+  h2{
+    font-size: 2.1rem;
+    color: white;
+    font-family: monospace;
+  }*/
+/*  #theCanvas{
+    background-color: #000;
+  }*/
+  </style>
+</head>
+
+<body>
+
+<!-- <canvas id="theCanvas" width="1920" height="1090"></canvas> -->
+<div class="container"> 
+  <!-- <h2>Diameter: <span id="circD">0</span></h2> -->
+
+<!--   <h2>z: <span id='doTiltLR'></span></h2> -->
+</div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,64 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <!-- to get rid of favicon request in console -->
+  <link rel="shortcut icon" href="">
+
+  <!-- P5 STUFF -->
+<!--   <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+ --> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.8/p5.js"></script>
+  <script language="javascript" type="text/javascript" src="mobile.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <!-- SOCKET STUFF -->
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+  <script type="text/javascript">
+    
+    /// SOCKET STUFF
+    var socket = io.connect();
+    
+    socket.on('connect', function() {
+      console.log("Connected");
+    });
+
+
+
+  </script>
+
+  <style> 
+    body {
+      padding: 0; 
+      margin: 0;
+    }
+    .container{
+      position: absolute;
+      z-index: 5;
+    }
+    h2{
+      font-size: 1rem;
+      color:pink;
+      font-family:monospace;
+    }
+  </style>
+
+</head>
+  <div class ="container">
+   <!--  <h2>alpha: <span id='alpha'>0</span></h2>
+    <h2>beta: <span id='beta'>0</span></h2> -->
+    <!-- <h2>gamma: <span id='gamma'></span></h2>
+    <br>
+   <h2>x: <span id='xmov'>0</span></h2>
+   <h2>y: <span id='ymov'>0</span></h2>
+   <h2>z: <span id='zmov'>0</span></h2> 
+  
+   <h2>z: <span id='zmov'></span></h2> -->
+  </div>
+ <body>
+</body>
+</html>
+
+
+
